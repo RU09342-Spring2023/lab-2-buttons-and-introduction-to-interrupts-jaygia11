@@ -33,7 +33,7 @@ int main(void){
             P6OUT |= BIT6;                       // Turns on green LED
             __delay_cycles(100000);              // Delay for .1 seconds
             P6OUT &= ~BIT6;                      // Turns off green LED
-            __delay_cycles(3000000);             // Delay for 3 seconds
+            __delay_cycles(2900000);             // Delay for 3 seconds
 
             if(!(P2IN & BIT3)){
                 state = WARNING_STATE;
@@ -44,9 +44,9 @@ int main(void){
 
         case WARNING_STATE:{
             P6OUT &= ~BIT6;                      // Turns off green LED
-            int i = 0;
+            int i;
 
-            for(i = 0; i <= 10; i++){        // Runs the warning blinking LED for 10 seconds
+            for(i = 1; i <= 10; i++){        // Runs the warning blinking LED for 10 seconds
                 P1OUT |= BIT0;                   // Turns on red LED
                 __delay_cycles(500000);          // Delay for .5 seconds
                 P1OUT &= ~BIT0;                  // Turns off red LED
